@@ -6,6 +6,7 @@ CREATE TABLE users (
     fname VARCHAR(255) NOT NULL,
     lname VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
+
 );
 INSERT INTO users (fname, lname, password)
 VALUES ("ali", "hatami", "leyla"),

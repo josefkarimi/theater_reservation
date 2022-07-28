@@ -11,8 +11,11 @@ def create_user(fname, lname, password):
 def create_show():
     pass
 
-def create_salon():
-    pass
+def create_salon(name, address, parkinglot, srow, scolumn, extra = 0):
+    print("creating salon...")
+    theaterdb = datas.db()
+    theaterdb.cursor.execute(f"INSERT INTO salons (name, address, parkinglot, srow, scolumn, extra ) VALUES ('{name}', '{address}', {parkinglot}, {srow}, {scolumn}, {extra});")
+    theaterdb.db.commit()
 
 def create_ticket():
     pass

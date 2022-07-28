@@ -15,12 +15,12 @@ CREATE TABLE salons(
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     address VARCHAR(255),
-    parking BIT DEFAULT 0,
-    s_row INT,
-    s_column INT,
+    parkinglot BIT DEFAULT 0,
+    srow INT,
+    scolumn INT,
     extra INT DEFAULT 0
 );
-INSERT INTO salons (name, address, s_row, s_column)
+INSERT INTO salons (name, address, srow, scolumn)
 VALUES ("azadi", "abbas-abad", 10, 7);
 CREATE TABLE shows (
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,

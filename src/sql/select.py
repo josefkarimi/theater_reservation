@@ -1,4 +1,5 @@
 import src.sql.db as datas
+import src.sql
 
 def get_user_id(user):
     print("getting user id...")
@@ -41,4 +42,16 @@ def get_show(id):
 def all_shows():
     theaterdb = datas.db()
     theaterdb.cursor.execute(f"SELECT * from shows;")
-    return theaterdb.cursor.fetchall()        
+    return theaterdb.cursor.fetchall()
+
+
+def get_object(name):
+    for item in src.sql.allusers :
+        if name == item.username :
+            return item
+    for item in src.sql.allshows :
+        if name == item.name :
+            return item
+    for item in src.sql.allsalons :
+        if name == item.name :
+            return item

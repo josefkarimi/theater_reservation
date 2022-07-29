@@ -12,6 +12,7 @@ class users:
         self.id = src.sql.select.get_user_id(self)
         self.mytickets = {}
         self.myshows = []
+        src.sql.allusers.add(self)
     
     def buyticket(self, show_id, n0):
         try:
@@ -33,6 +34,8 @@ class salons:
         self.capacity = self.capacity(extra)
         src.sql.creating.create_salon(self.name, self.address, self.parkinglot, self.srow, self.scolumn, self.extra)
         self.id = src.sql.select.get_salon_id(self)
+        src.sql.allsalons.add(self)
+    
     def capacity(self, extra = 0) :
         return self.scolumn * self.srow + self.extra
     
@@ -47,7 +50,7 @@ class shows:
         self.duration = duration
         src.sql.creating.create_show(self.name, self.director.id, self.genre, self.date_time, self.salon.id, self.duration)
         self.id = src.sql.select.get_show_id(self)
-
+        src.sql.allshows.add(self)
 class tickets :
     def __init__(self, user, show, n0):
         self.user = user

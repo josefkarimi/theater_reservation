@@ -25,4 +25,6 @@ if create_database == "y" or create_database == "yes":
         print(item[0:30])
         if "INSERT" in item :
             theaterdb.db.commit()
-
+allusers = set()
+allsalons = set()
+allshows = set()

@@ -1,5 +1,7 @@
 #GUI
 from tkinter import *
+import src.sql
+import src.clas
 
 def register():
     
@@ -66,10 +68,12 @@ def login():
     Button(login_screen, text = 'Login', width = 10, height = 1, command = login_verify).pack()
 
 def register_user():
-
+    
     username_info = username.get()
     password_info = password.get()
-    Label(register_screen, text="Registration Success", fg="green", font=("calibri", 11)).pack()
+    # Label(register_screen, text="Registration Success", fg="green", font=("calibri", 11)).pack()
+    # src.clas.users(username_info,password_info)
+    # print(src.sql.allusers)
 
 def login_verify():
     old_username = username_verify.get()
@@ -78,7 +82,7 @@ def login_verify():
     username_login_entry.delete(0, END)
     password_login_entry.delete(0, END)
 
-    set_of_users = {('anis' , '1234')}
+    set_of_users = {('anis','1234')}
 
     for item in set_of_users :
         if old_username in item[0] and old_password in item[1] :
@@ -179,14 +183,13 @@ def seat_selection():
             newButton = Button(seat_screen, text = f'{j+1}.{i+1}',height="2", width="10",bg='grey', activebackground='cyan', command=confirm_selection(j,i)).grid(column=i, row=j+2)
 
 def confirm_selection(x,y):
-    pass
-    # global confirm_screen
-    # confirm_screen = Toplevel(seat_screen)
-    # confirm_screen.title('Confirm your ticket')
-    # confirm_screen.geometry('200x200')
+    global confirm_screen
+    confirm_screen = Toplevel(seat_screen)
+    confirm_screen.title('Confirm your ticket')
+    confirm_screen.geometry('200x200')
 
-    # Label(confirm_screen, text = 'Are you sure ?').pack()
-    # Button(confirm_screen, text = 'YES', bg='green', command = print(f'The {x+1}.{y+1} ticket is yours')).pack()
+    Label(confirm_screen, text = 'Are you sure ?').pack()
+    Button(confirm_screen, text = 'YES', bg='green', command = print(f'The {x+1}.{y+1} ticket is yours')).pack()
 
 def main_account_screen():
     

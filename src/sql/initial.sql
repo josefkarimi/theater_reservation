@@ -40,7 +40,7 @@ CREATE TABLE shows (
 --         place_id,
 --         duration
 --     )
--- VALUES ("madar", 1, "drama", now(), 1, "90:00");
+-- VALUES ("madar", 1, "drama", now(), 1, "00:10:00");
 CREATE TABLE tickets(
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,

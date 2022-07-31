@@ -38,12 +38,21 @@ def get_show(id):
     theaterdb.cursor.execute(f"SELECT name from shows WHERE id = '{id}';")
     return theaterdb.cursor.fetchone()[0]
 
+def all_users():
+    theaterdb = datas.db()
+    theaterdb.cursor.execute(f"SELECT * from users;")
+    return theaterdb.cursor.fetchall()
+
 
 def all_shows():
     theaterdb = datas.db()
     theaterdb.cursor.execute(f"SELECT * from shows;")
     return theaterdb.cursor.fetchall()
 
+def all_tickets():
+    theaterdb = datas.db()
+    theaterdb.cursor.execute(f"SELECT * from tickets;")
+    return theaterdb.cursor.fetchall()
 
 def get_object(name):
     for item in src.sql.allusers :

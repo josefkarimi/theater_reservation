@@ -22,6 +22,9 @@ class users:
         finally:
             self.myshows = list(self.mytickets.keys())
 
+# for n, item in enumerate(src.sql.select.all_users()): 
+#     ali = users(item[1],item[2])
+#     karimi = users(item[1],item[2])
 
 class salons:
     def __init__(self, name, address, parkinglot, srow, scolumn, *, extra = 0):
@@ -51,6 +54,10 @@ class shows:
         src.sql.creating.create_show(self.name, self.director.id, self.genre, self.date_time, self.salon.id, self.duration)
         self.id = src.sql.select.get_show_id(self)
         src.sql.allshows.add(self)
+
+# for item in src.sql.select.all_shows():
+#     madar = shows(item[1], src.sql.select.get_object('ali') , item[3],item[4],item[5],item[6])
+        
 class tickets :
     def __init__(self, user, show, n0):
         self.user = user
